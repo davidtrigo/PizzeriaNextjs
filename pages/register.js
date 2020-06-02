@@ -19,7 +19,6 @@ export default function Register() {
         console.log(await response.json())
     }
    
-
     return (
    
         <form onSubmit={handlerSubmit}>
@@ -36,8 +35,7 @@ export default function Register() {
                 <input id ="password" type="password" name="password" />
             </label>
             <button type="submit">Register</button>   
-    
-        
+
         </form>
     )
 }
