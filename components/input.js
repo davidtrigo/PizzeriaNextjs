@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import validatorjs from 'validator';
 export default function Input({ type, name, value, validators }) {
     const { register, errors, validator } = validators;

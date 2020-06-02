@@ -2,12 +2,12 @@ import Input from '../components/input'
 import { USERVALIDATOLOGIN } from '../app/validators/uservalidator'
 import getBuilderProp from '../app/application/validatorbuilder'
 import { useForm } from 'react-hook-form'
-import { set } from 'idb-keyval';
+import { keys, set, get } from 'idb-keyval';
 import Router from 'next/router'
 
 export default function Login() {
 
-    
+
     const { handleSubmit, register, errors } = useForm();
     const validators = {
         validator: getBuilderProp({ USERVALIDATOLOGIN }).USERVALIDATOLOGIN,
@@ -23,11 +23,11 @@ export default function Login() {
             },
             body: JSON.stringify(data)
         })
-        
-      await  set('data', await response.json());
-       Router.push('/')
-       
-     
+        const user =  await response.json();
+        await set('user', user);
+        Router.push('/')
+
+
     }
     return (
 
@@ -38,7 +38,7 @@ export default function Login() {
             </label>
             <label>
                 Password * :
-                <Input  type="password" name="password" validators={validators} />
+                <Input type="password" name="password" validators={validators} />
             </label>
             <button type="submit">Login</button>
 
