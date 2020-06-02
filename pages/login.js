@@ -3,6 +3,7 @@ import { USERVALIDATOLOGIN } from '../app/validators/uservalidator'
 import getBuilderProp from '../app/application/validatorbuilder'
 import { useForm } from 'react-hook-form'
 import { set } from 'idb-keyval';
+import Router from 'next/router'
 
 export default function Login() {
 
@@ -22,12 +23,11 @@ export default function Login() {
             },
             body: JSON.stringify(data)
         })
-        //       
-    //    set('data', data);
-
-        //grabar en indexdb
-        //redireccionar
-        //  console.log(await response.json())
+        
+      await  set('data', await response.json());
+       Router.push('/')
+       
+     
     }
     return (
 

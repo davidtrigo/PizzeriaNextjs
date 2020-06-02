@@ -124,3 +124,12 @@ https://www.npmjs.com/package/glob
 
    builder
     stack
+
+
+    1. Crear un componente que si el usuario está logeado
+   Muestra su nombre y un botón logout
+
+2. Si se hace logout se borra del indexdb después de hacer
+   logout en el servidor
+
+3. Si esta en logout poder hacer login
