@@ -9,6 +9,8 @@
     "debug": "node --inspect-brk ./node_modules/next/dist/bin/next"
   },
   "dependencies": {
+    "@material-ui/core": "^4.10.1",
+    "@material-ui/icons": "^4.9.1",
     "express-validator": "^6.5.0",
     "glob": "^7.1.6",
     "idb-keyval": "^3.2.0",
