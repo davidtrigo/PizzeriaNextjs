@@ -28,8 +28,8 @@ export default function Login() {
                 },
                 body: JSON.stringify(data)
             })
-            const user = await response.json();
-            await set('user', user);
+           const user = await response.json();
+        await set('user', user);
             Router.push('/')
         } catch{
 
