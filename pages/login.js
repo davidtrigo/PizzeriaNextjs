@@ -2,12 +2,15 @@ import Input from '../components/input'
 import { USERVALIDATOLOGIN } from '../app/validators/uservalidator'
 import getBuilderProp from '../app/application/validatorbuilder'
 import { useForm } from 'react-hook-form'
-import { keys, set, get } from 'idb-keyval';
+import { set } from 'idb-keyval';
 import Router from 'next/router'
+import Button from '@material-ui/core/Button';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import { useState } from 'react'
 
 export default function Login() {
 
-
+    const [send, sendState] = useState(false)
     const { handleSubmit, register, errors } = useForm();
     const validators = {
         validator: getBuilderProp({ USERVALIDATOLOGIN }).USERVALIDATOLOGIN,
@@ -16,32 +19,64 @@ export default function Login() {
     }
 
     async function onSubmit(data) {
-        const response = await fetch('/api/login', {
-            method: "POST",
-            headers: {
-                "content-type": 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        const user =  await response.json();
-        await set('user', user);
-        Router.push('/')
+        sendState(true);
+        try {
+            const response = await fetch('/api/login', {
+                method: "POST",
+                headers: {
+                    "content-type": 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            const user = await response.json();
+            await set('user', user);
+            Router.push('/')
+        } catch{
 
-
+        } finally {
+            sendState(false);
+        }
     }
+
+    function linear() {
+        if (send) {
+            return (<LinearProgress />)
+        }
+        return null;
+    }
+
+
     return (
+        <>
+            {linear()}
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <label>
-                Email * :
-                <Input type="text" name="email" validators={validators} />
-            </label>
-            <label>
-                Password * :
-                <Input type="password" name="password" validators={validators} />
-            </label>
-            <button type="submit">Login</button>
+            <form className="container" onSubmit={handleSubmit(onSubmit)} noValidate>
+                <Input label="Email*" required type="text" name="email" validators={validators} />
+                <Input label="Password*" required type="password" name="password" validators={validators} />
+                <div className="button-container">
+                    <Button type="submit" variant="contained"  size="small" color="primary">
+                        Login
+                </Button>
+                </div>
 
-        </form>
+            </form>
+            <style jsx>{`
+            .container{
+                display:grid;
+                grid-template-rows: repeat(3,auto);
+                max-width:33%;
+                margin:auto;
+                grid-gap:0.5rem;
+            }
+            .button-container{
+                display:flex;
+                justify-content:flex-end;
+            }
+        `}
+            </style>
+
+        </>
+
     )
 }
+

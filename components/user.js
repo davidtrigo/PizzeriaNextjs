@@ -1,6 +1,7 @@
 import { get, del } from 'idb-keyval';
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
+import Button from '@material-ui/core/Button';
 export default function User() {
 
     const [user, setUser] = useState(null);
@@ -27,17 +28,18 @@ export default function User() {
     if (user)
         return (
             <>
-                <div>{user.name}</div>
+                <div><h2>{user.name}</h2></div>
                 <form onSubmit={handleLogout}>
-                    <button type="submit">Sign off</button>
+                    <Button type="submit"variant="contained"  size="small" color="secondary">Sign off</Button>
                 </form>
             </>
         )
     return (
         <>
             <form onSubmit={handleSigin}>
-                <button type="submit">Sign in</button>
+                <Button type="submit"variant="contained"  size="small" color="primary">Sign in</Button>
             </form>
         </>
     )
 }
+

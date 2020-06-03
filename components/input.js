@@ -1,5 +1,6 @@
 import validatorjs from 'validator';
-export default function Input({ type, name, value, validators }) {
+import TextField from '@material-ui/core/TextField';
+export default function Input({ type, name, value, validators, label }) {
     const { register, errors, validator } = validators;
     const validateField = validator.find(f => f.fields.includes(name));
 
@@ -21,15 +22,12 @@ export default function Input({ type, name, value, validators }) {
     if (validateField)
         return (
             <>
-                <input type={type} ref={register({
-                    validate: validateFn,
-
-
-                })} name={name} value={value} />
-                {errors[name] && validateField.message}
+                <TextField id={name} type={type} inputRef={register({
+                    validate: validateFn
+                })} name={name} value={value} label={label} />
             </>
         )
-    return (<input type={type} name={name} value={value} />)
+    return (<TextField id={name} type={type} inputRef={register} name={name} value={value} label={label} />)
 
 
 }
