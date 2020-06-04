@@ -31,8 +31,6 @@ export default function Login() {
            const user = await response.json();
         await set('user', user);
             Router.push('/')
-        } catch{
-
         } finally {
             sendState(false);
         }

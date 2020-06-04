@@ -12,16 +12,11 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-         Pizzeria <a href="https://nextjs.org">Next.js</a>
+         Pizzeria <a href="https://nextjs.org">David</a>
         </h1>
+       
         <User/>
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-         
-        </div>
+        
       </main>
 
       <footer>
