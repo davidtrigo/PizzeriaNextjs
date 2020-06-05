@@ -1,5 +1,5 @@
 import Input from '../components/input'
-import { USERVALIDATOLOGIN } from '../app/validators/uservalidator'
+import { USERVALIDATORLOGIN } from '../app/validators/uservalidator'
 import getBuilderProp from '../app/application/validatorbuilder'
 import { useForm } from 'react-hook-form'
 import { set } from 'idb-keyval';
@@ -13,7 +13,7 @@ export default function Login() {
     const [send, sendState] = useState(false)
     const { handleSubmit, register, errors } = useForm();
     const validators = {
-        validator: getBuilderProp({ USERVALIDATOLOGIN }).USERVALIDATOLOGIN,
+        validator: getBuilderProp({ USERVALIDATORLOGIN }).USERVALIDATORLOGIN,
         register,
         errors
     }

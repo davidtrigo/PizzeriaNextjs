@@ -11,12 +11,12 @@ const USERVALIDATOREGISTER=[
     validator
 ];
 
-const USERVALIDATOLOGIN=[
+const USERVALIDATORLOGIN=[
     ...userValidator,
     validator    
 ];
 
 module.exports={
     USERVALIDATOREGISTER,
-    USERVALIDATOLOGIN
+    USERVALIDATORLOGIN
 }

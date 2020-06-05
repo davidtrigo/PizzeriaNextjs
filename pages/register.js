@@ -19,22 +19,15 @@ export default function Register() {
 
     async function onSubmit(data) {
         try{
-            const user ={
-                name :data.name,
-                email :data.email,
-                password :data.password
-          
-         }
          const response = await fetch('/api/register',{
              method:"POST",
              headers:{
                  "content-type":'application/json'
              },
-             body:JSON.stringify(user)
+             body:JSON.stringify(data)
          })
-        const userLogin = await response.json();
-        
-          await set('user', userLogin);
+     const user = await response.json();
+       await set('user', user);
          Router.push('/')
         }
         finally{
@@ -77,10 +70,6 @@ export default function Register() {
             }
         `}
             </style>
-
         </>
-
     )
-
-
 }

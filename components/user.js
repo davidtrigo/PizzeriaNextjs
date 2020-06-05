@@ -12,7 +12,7 @@ export default function User() {
         fethUser();
     },[user])
 
-    function handleSigin(ev) {
+    function handleSignin(ev) {
         ev.preventDefault();
         Router.push('/login')
 
@@ -30,14 +30,14 @@ export default function User() {
             <>
                 <div><h2>{user.name}</h2></div>
                 <form onSubmit={handleLogout}>
-                    <Button type="submit"variant="contained"  size="small" color="secondary">Sign off</Button>
+                    <Button type="submit" color= "inherit" >Sign off</Button>
                 </form>
             </>
         )
     return (
         <>
-            <form onSubmit={handleSigin}>
-                <Button type="submit"variant="contained"  size="small" color="primary">Sign in</Button>
+            <form onSubmit={handleSignin}>
+                <Button type="submit" size="small" color="inherit">Sign in</Button>
             </form>
         </>
     )
