@@ -1,17 +1,18 @@
 import Head from 'next/head'
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import { ServerStyleSheets} from '@material-ui/core/styles';
 function App({ Component, pageProps }){
-   
+    //const sheets = new ServerStyleSheets();
+    //sheets.collect()
+    //const css = sheets.toString();
     return (
         <>
         <Head>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> 
             <link rel="icon" href="/favicon.ico" />
-            
+            <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
         </Head>
-        <CssBaseline></CssBaseline>
+        <CssBaseline/>
         <Component {...pageProps}/>
         </>
     )

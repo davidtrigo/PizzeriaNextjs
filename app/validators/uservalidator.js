@@ -3,6 +3,7 @@ const validator = require('./validator');
 const userValidator =[
     check('email').normalizeEmail().isEmail(),
     check('password').isAlphanumeric().isLength({ min: 5, max: 10 }),
+   //TODO confirm password
 ]
 
 const USERVALIDATOREGISTER=[
@@ -11,12 +12,12 @@ const USERVALIDATOREGISTER=[
     validator
 ];
 
-const USERVALIDATORLOGIN=[
+const USERVALIDATOLOGIN=[
     ...userValidator,
     validator    
 ];
 
 module.exports={
     USERVALIDATOREGISTER,
-    USERVALIDATORLOGIN
+    USERVALIDATOLOGIN
 }

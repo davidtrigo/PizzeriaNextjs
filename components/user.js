@@ -1,7 +1,7 @@
 import { get, del } from 'idb-keyval';
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
 export default function User() {
 
     const [user, setUser] = useState(null);
@@ -12,15 +12,19 @@ export default function User() {
         fethUser();
     },[user])
 
-    function handleSignin(ev) {
+    function handleSigin(ev) {
         ev.preventDefault();
         Router.push('/login')
 
     }
     async function handleLogout(ev) {
         ev.preventDefault();
-        await fetch(`/api/logout/${user.refreshToken}`, {
+        await fetch(`/api/logout`, {
             method: 'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify({refreshToken:user.refreshToken})
         })
         await del('user');
         setUser(null);
@@ -28,18 +32,17 @@ export default function User() {
     if (user)
         return (
             <>
-                <div><h2>{user.name}</h2></div>
+                <div>{user.name}</div>
                 <form onSubmit={handleLogout}>
-                    <Button type="submit" color= "inherit" >Sign off</Button>
+                    <Button type="submit" color="inherit">Sign off</Button>
                 </form>
             </>
         )
     return (
         <>
-            <form onSubmit={handleSignin}>
-                <Button type="submit" size="small" color="inherit">Sign in</Button>
+            <form onSubmit={handleSigin}>
+                <Button type="submit" color="inherit">Sign in</Button>
             </form>
         </>
     )
 }
-

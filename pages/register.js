@@ -1,38 +1,40 @@
 import Input from '../components/input'
 import { USERVALIDATOREGISTER } from '../app/validators/uservalidator'
-import getBuilderProp from '../app/application/validatorbuilder'
+import { getBuilderProp } from '../app/application/validatorbuilder'
 import { useForm } from 'react-hook-form'
+import { set } from 'idb-keyval';
 import Router from 'next/router'
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { useState } from 'react'
-import { set } from 'idb-keyval';
+export default function Login() {
 
-export default function Register() {
     const [send, sendState] = useState(false)
     const { handleSubmit, register, errors } = useForm();
     const validators = {
-        validator: getBuilderProp({ USERVALIDATOREGISTER }).USERVALIDATOREGISTER,
+        validator: getBuilderProp(USERVALIDATOREGISTER),
         register,
         errors
     }
 
     async function onSubmit(data) {
-        try{
-         const response = await fetch('/api/register',{
-             method:"POST",
-             headers:{
-                 "content-type":'application/json'
-             },
-             body:JSON.stringify(data)
-         })
-     const user = await response.json();
-       await set('user', user);
-         Router.push('/')
+        sendState(true);
+        try {
+            const response = await fetch('/api/register', {
+                method: "POST",
+                headers: {
+                    "content-type": 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            const user = await response.json();
+            await set('user', user);
+            Router.push('/');
         }
-        finally{
+        finally {
             sendState(false);
         }
+
     }
     function linear() {
         if (send) {
@@ -40,17 +42,15 @@ export default function Register() {
         }
         return null;
     }
-
-        return (
+    return (
         <>
-           
-           {linear()}
+            {linear()}
             <form className="container" onSubmit={handleSubmit(onSubmit)} noValidate>
-            <Input label="Name*" required type="text" name="name" validators={validators} />
-                <Input label="Email*" required type="text" name="email" validators={validators} />
-                <Input label="Password*" required type="password" name="password" validators={validators} />
+                <Input label="Name *" type="text" name="name" validators={validators} />
+                <Input label="Email *" type="text" name="email" validators={validators} />
+                <Input label="Password *" type="password" name="password" validators={validators} />
                 <div className="button-container">
-                    <Button type="submit" variant="contained"  size="small" color="primary">
+                    <Button type="submit" variant="contained" color="primary">
                         Register
                 </Button>
                 </div>

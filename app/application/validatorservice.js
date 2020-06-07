@@ -1,4 +1,4 @@
-import getBuilder from './validatorbuilder'
+import {getBuilder} from './validatorbuilder'
 const glog = require('glob');
 const promisify = require('util').promisify;
 const path = require('path');
@@ -28,3 +28,4 @@ async function getValidators() {
 }
 module.exports =getValidators;
     
+

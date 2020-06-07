@@ -4,7 +4,7 @@ function getValidator({ fields, message, stack }) {
         message,
         validators: stack.map(s => ({
             sanitizer:s.sanitizer?true:false,
-            validator: (s.sanitizer || s.validator).name,
+            validator: s.sanitizer || s.validator,
             args: s.options.filter(s => s)
         }))
     }
@@ -23,4 +23,7 @@ function getBuilder(obj) {
         },{})
 
 }
-export default getBuilder;
+export {
+    getBuilder,
+    getBuilderProp
+}

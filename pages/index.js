@@ -1,17 +1,13 @@
-import React from 'react';
-import Head from 'next/head';
-import ToolBar from '../components/toolbar';
-
-
-
-
+import Head from 'next/head'
+import User from '../components/user'
+import AppBar from '../components/appbar'
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Pizzeria David</title>
+        <title>Pizzeria</title>
       </Head>
-      <ToolBar></ToolBar>
+      <AppBar/>
     </>
   )
 }

@@ -1,11 +1,11 @@
 class DuplicateError extends Error{
-    constructor(message){
-        super(message)
+    constructor(messaje){
+        super(messaje)
     }
 }
 class NotExistsError extends Error{
-    constructor(message){
-        super(message)
+    constructor(messaje){
+        super(messaje)
     }
 }
 
