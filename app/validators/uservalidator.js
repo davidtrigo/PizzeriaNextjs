@@ -1,23 +1,22 @@
-const { check} = require('express-validator');
+const { check } = require('express-validator');
 const validator = require('./validator');
-const userValidator =[
+const userValidator = [
     check('email').normalizeEmail().isEmail(),
     check('password').isAlphanumeric().isLength({ min: 5, max: 10 }),
-   //TODO confirm password
 ]
 
-const USERVALIDATOREGISTER=[
+const USERVALIDATOREGISTER = [
     ...userValidator,
     check('name').isAlphanumeric().isLength({ min: 1, max: 50 }),
     validator
 ];
 
-const USERVALIDATOLOGIN=[
+const USERVALIDATOLOGIN = [
     ...userValidator,
-    validator    
+    validator
 ];
 
-module.exports={
+module.exports = {
     USERVALIDATOREGISTER,
     USERVALIDATOLOGIN
 }

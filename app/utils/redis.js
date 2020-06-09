@@ -6,6 +6,7 @@ module.exports = function(){
         HSET:promisify(client.HSET).bind(client),
         HGET:promisify(client.HGET).bind(client),
         HDEL:promisify(client.HDEL).bind(client),
+        HVALS:promisify(client.HVALS).bind(client),
         quit:promisify(client.quit).bind(client),
     }
 }

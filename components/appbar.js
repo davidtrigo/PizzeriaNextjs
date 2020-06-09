@@ -5,7 +5,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 import { drawerWidth } from './menu'
 import User from '../components/user'
-//import Search from '../components/search'
 
 import { useContext } from 'react'
 import MenuContext from './menucontext';

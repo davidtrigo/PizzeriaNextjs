@@ -15,4 +15,25 @@ infraestructure  promisify
 domain
 
 
+domain
+    ingredients
+        id
+        name
+        price
+
+
+repository 
+
+    ingredientrepository
+
+service
+    ingredientservice
+
+
+services raiz
+    ingredient
+api 
+    ingredients
+components
+    tableicon
 

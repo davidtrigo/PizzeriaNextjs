@@ -6,7 +6,6 @@ import ListItemText from '@material-ui/core/ListItemText'
 import { makeStyles } from '@material-ui/core/styles';
 import Link from 'next/link'
 
-
 const useStyles = makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
 
