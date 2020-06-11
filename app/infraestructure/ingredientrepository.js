@@ -12,7 +12,6 @@ class IngredientRepository {
         }
     }
     async getAll() {
-        console.log(this.client)
         const ingredients = await this.client.HVALS('ingredients')
         return ingredients.map(ingredient => new Ingredient(JSON.parse(ingredient)));
     }

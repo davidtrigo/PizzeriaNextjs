@@ -9,11 +9,11 @@ export default function Ingredients() {
   const [loaded, setLoaded] = useState(false);
   const [columns, _] = useState([
     {
-      name: "name",
+      title: "Nombre",
       field: "name",
     },
     {
-      name: "price",
+      title: "Precio",
       field: "price",
       type: "numeric"
     }
@@ -27,7 +27,40 @@ export default function Ingredients() {
   }
   useEffect(() => {
     if (!loaded) getIngredients()
-  }, {})
+  }, [])
+  async function addIngredient(newData) {
+    try {
+      await IngredientService.add({ name: newData.name, price: newData.price })
+    }
+    catch (error) {
+      throw new Error(400)
+    }
+    setData([...data, newData]);
+  }
+  async function updateIngredient(newData, oldData) {
+    try {
+      await IngredientService.update(oldData.id, { id: oldData.id, name: newData.name, price: newData.price })
+    }
+    catch (error) {
+      throw new Error(400)
+    }
+    const dataUpdate = [...data];
+    const index = oldData.tableData.id;
+    dataUpdate[index] = newData;
+    setData([...dataUpdate]);
+  }
+  async function deleteIngredient(oldData) {
+    try {
+      await IngredientService.remove(oldData.id)
+    }
+    catch (error) {
+      throw new Error(400)
+    }
+    const dataDelete = [...data];
+    const index = oldData.tableData.id;
+    dataDelete.splice(index, 1);
+    setData([...dataDelete]);
+  }
   return (
     <>
       <Head>
@@ -38,7 +71,16 @@ export default function Ingredients() {
           title="ingredientes"
           icons={tableIcons}
           columns={columns}
-          data={data} />
+          data={data}
+          options={{
+            paging: false,
+            search: false,
+          }}
+          editable={{
+            onRowAdd: addIngredient,
+            onRowUpdate: updateIngredient,
+            onRowDelete: deleteIngredient,
+          }} />
       </Layout>
     </>
   )

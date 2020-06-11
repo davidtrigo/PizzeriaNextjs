@@ -37,3 +37,16 @@ api
 components
     tableicon
 
+domain
+    Pizza
+        name
+        cloudinary imagen
+        ingredients
+
+application
+    pizzaservice
+
+infrastructura
+    pizzarepository
+
+    profit,js
