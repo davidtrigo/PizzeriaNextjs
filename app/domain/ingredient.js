@@ -4,7 +4,7 @@ class Ingredient {
     constructor(dto) {
         this.id = dto.id;
         this.name = dto.name;
-        this.price = dto.price;
+        this.price = Number(dto.price);
 
     }
     static create(dto) {

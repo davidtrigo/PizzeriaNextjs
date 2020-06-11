@@ -8,9 +8,7 @@ class Pizza {
         this.image = dto.image;
         this.price = dto.price || this.getPrice(dto);
         this.comments = dto.comments || []
-        this.rating = this.comments.reduce(
-            (previous, current) => previous.rating + current.rating, 0
-        ) / (this.comments.length || 1);
+        this.rating = this.getRating(this.comments);
         this.ingredients = dto.ingredients.map(i => ({ id: i.id }));
     }
     static create(dto) {
@@ -22,12 +20,17 @@ class Pizza {
     }
     getPrice(dto) {
         const price = dto.ingredients.reduce(
-            (previous, current) => previous.price + current.price, 0);
+            (previous, current) => previous + current.price, 0);
         return profit(price);
     }
-    static addComment(comment, dto) {
-        dto.comments.push(comment);
-        return new Pizza(dto);
+    addComment(comment) {
+        this.comments.push(comment);
+        this.rating = this.getRating(this.comments)
+    }
+    getRating(comments) {
+        return comments.reduce(
+            (previous, current) => previous + current.rating, 0
+        ) / (comments.length || 1);
     }
     update(dto) {
         this.name = dto.name;

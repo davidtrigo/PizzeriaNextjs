@@ -1,4 +1,5 @@
 const redis = require('../utils/redis');
+const Pizza = require('../domain/pizza');
 
 class PizzaRepository {
     constructor() {
@@ -7,7 +8,7 @@ class PizzaRepository {
     async get(pizzaId) {
         const pizza = await this.client.HGET('pizzas', pizzaId)
         if (pizza) {
-            return JSON.parse(pizza);
+            return new Pizza(JSON.parse(pizza));
         }
     }
     async add(pizza) {
