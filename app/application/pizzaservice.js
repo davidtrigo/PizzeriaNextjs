@@ -72,7 +72,7 @@ class PizzaService {
             throw NotExistsError ('pizza not exists')
         }
         const comment = Comment.create(dto);
-        comment
+        return 0;
         
     }
 }
