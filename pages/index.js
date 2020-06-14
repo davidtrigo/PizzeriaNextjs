@@ -25,7 +25,7 @@ export default function Home() {
         <title>Pizzeria</title>
       </Head>
       <Layout className={classes.root}>
-      <div><h1>Estas en Pizzas</h1></div>
+      <div><h1>Listado de  Pizzas</h1></div>
         <Link href='/pizzas/add'>
           <Fab className={classes.fab} color="primary" aria-label="add">
             <AddIcon />

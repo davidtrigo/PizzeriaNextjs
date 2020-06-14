@@ -1,52 +1,16 @@
-estructura  propuesta
-
-pages
-    api
-    index.js
-public
-src
-    domain
-    application
-    infraestructura
 
 
-validator     uservalidator
-infraestructure  promisify
-domain
+    En el cmd poner lo siguiente
+
+SETX  CLOUDINARY  keysecret
+
+keysecret , valor de la key secret que te da cloudinary
+reinciar cmd e   IDE
 
 
-domain
-    ingredients
-        id
-        name
-        price
+pages/pizzas/edit
 
+    listar pizzas 
+        seleccionar una 
+            mostrar pantalla edit 
 
-repository 
-
-    ingredientrepository
-
-service
-    ingredientservice
-
-
-services raiz
-    ingredient
-api 
-    ingredients
-components
-    tableicon
-
-domain
-    Pizza
-        name
-        cloudinary imagen
-        ingredients
-
-application
-    pizzaservice
-
-infrastructura
-    pizzarepository
-
-    profit,js

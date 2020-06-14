@@ -46,7 +46,6 @@ class PizzaService {
         });
         await repositoryIngredient.dispose();
     }
-    /**  */
     async normalizePizza(dto) {
         dto.price = 0;
         const repositoryIngredient = new IngredientRepository();
