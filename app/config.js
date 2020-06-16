@@ -1,9 +1,11 @@
-module.exports = {
-    secret: 'vrBfFUFJnmeW4r4PAE3RmUO',
-    profit: 1.05,
-    cloudinarySecret: process.env.CLOUDINARY,
-};
+// El archivo debe ser c:\keys\pizzeria.json
 
-// Poner en variables de entorno   el cloudinarySecret
-//  SETX  CLOUDINARY    XXXXXXXXXX
+/* 
+{
+    secret: "xxxx",
+    profit: x.xx,
+    cloudinarySecret: "xxxxx"
+}
+*/
 
+module.exports = JSON.parse(config)

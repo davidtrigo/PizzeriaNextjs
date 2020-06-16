@@ -10,7 +10,12 @@ reinciar cmd e   IDE
 
 pages/pizzas/edit
 
-    listar pizzas 
+    listar pizzas    pizza/list.js
         seleccionar una 
-            mostrar pantalla edit 
+            mostrar pantalla edit   edit.js
 
+
+
+put
+
+connect.put  x
