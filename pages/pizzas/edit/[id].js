@@ -15,6 +15,8 @@ import cloudinaryService from '../../../services/cloudinary'
 import { useForm } from 'react-hook-form'
 import { PIZZAVALIDATOR } from '../../../app/validators/pizzavalidator'
 import { getBuilderProp } from '../../../app/application/validatorbuilder'
+import Router from 'next/router'
+
 
 export async function getServerSideProps(context) {
     return {
@@ -63,12 +65,14 @@ export default function Edit({ id }) {
         register,
         errors
     }
-  
+
     async function onSubmit(newData) {
         sendState(true);
         try {
-           const data  = { ...newData, ingredients: right, image: pizza.image }
+            const data = { ...newData, ingredients: right, image: pizza.image }
             await PizzaService.update(pizza.id, data)
+            //Router.push('/');
+            handleBack()
 
         } catch (error) {
             throw new Error(400)
@@ -76,7 +80,10 @@ export default function Edit({ id }) {
         finally {
             sendState(false);
         }
+    }
 
+    function handleBack() {
+        Router.back()
     }
 
     const transferProps = {
@@ -90,7 +97,7 @@ export default function Edit({ id }) {
     function renderLayout() {
         const images = []
         if (!pizza) return null;
-        if(pizza.image){
+        if (pizza.image) {
             images.push(cloudinaryService.getUrlImage(pizza.image))
         }
 
@@ -100,7 +107,7 @@ export default function Edit({ id }) {
                     <Input label="Nombre *" type="text" name="name" validators={validators} value={pizza.name} />
                     <TransferList {...transferProps} />
                     <DropzoneArea
-                        initialFiles={images}  
+                        initialFiles={images}
                         acceptedFiles={['image/*']}
                         dropzoneText={"Arrastrar imagen o hacer click"}
                         filesLimit={1}
@@ -109,12 +116,14 @@ export default function Edit({ id }) {
                     <div className="button-container">
                         <Button type="submit" variant="contained" color="primary">
                             Guardar
-                    </Button>
+                        </Button>
+                        <Button variant="contained" onClick={handleBack} >
+                            Atrás
+                        </Button>
                     </div>
                 </form>
             </Layout>
         )
-
     }
     function linear() {
         if (send) {

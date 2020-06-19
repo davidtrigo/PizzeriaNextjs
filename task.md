@@ -7,15 +7,5 @@ SETX  CLOUDINARY  keysecret
 keysecret , valor de la key secret que te da cloudinary
 reinciar cmd e   IDE
 
-
-pages/pizzas/edit
-
-    listar pizzas    pizza/list.js
-        seleccionar una 
-            mostrar pantalla edit   edit.js
-
-
-
-put
-
-connect.put  x
+5. arreglar la manera como se ve la pantalla Ingredientes"
+6. maquetar
