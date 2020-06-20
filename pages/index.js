@@ -47,13 +47,6 @@ export async function getServerSideProps(context) {
     }
   };
 }
-/* return {
-  props: {
-    pizzas: pizzas.hits,
-    count: pizzas.nbPages,
-    page: pizzas.page
-  }
-}; */
 
 export default function Home({ pizzas, count, page, query }) {
   const [loaded, setLoaded] = useState(false);
