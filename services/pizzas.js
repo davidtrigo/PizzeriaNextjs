@@ -1,8 +1,6 @@
 import User from './user'
 const api = '/api/pizzas'
 
-// TODO recuperar el usuario de la indexdb y mandarlo
-// al servidor
 class PizzaClient {
     async get(id) {
         const response = await fetch(`${api}/${id}`)

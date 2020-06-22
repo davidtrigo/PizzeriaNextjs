@@ -12,9 +12,6 @@ import Pagination from '@material-ui/lab/Pagination';
 import Router from 'next/router'
 const LRU = require("lru-cache")
 
-// TODO pasar el texto del componente search a la pag index
-// y construir la url para buscar por el texto
-
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',

@@ -1,11 +1,26 @@
 
 
-    En el cmd poner lo siguiente
 
-SETX  CLOUDINARY  keysecret
 
-keysecret , valor de la key secret que te da cloudinary
-reinciar cmd e   IDE
+3. Servicios de cliente para mandar token
+4. Creado servicio user en cliente para recuperar token
 
-5. arreglar la manera como se ve la pantalla Ingredientes"
-6. maquetar
+
+7. Queda proteger también api Cloudinary
+
+
+8. arreglar la manera como se ve la pantalla Ingredientes"
+9. maquetar
+
+DONE
+
+5. Modificado el metodo post de pizzaservice quedando
+   por modificar el método put
+6. Queda por modificar get, post, put, delete de ingredientes
+1. Editado dominio user
+2. Editado session
+
+
+
+
+

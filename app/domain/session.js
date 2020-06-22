@@ -23,8 +23,10 @@ class Session {
         this.expiresIn = Session.getTokenData(session.token);
     }
     static getTokenData(token) {
-        const playload = Buffer.from(token.split('.')[1], 'base64').toString();
-        return JSON.parse(playload).exp;
+        const payload = Buffer.from(token.split('.')[1], 'base64').toString();
+
+
+        return JSON.parse(payload).exp;
     }
     static create(dto) {
         const session = {
@@ -34,7 +36,22 @@ class Session {
             token: sign(dto, config.secret, { expiresIn: '1h' }),
             refreshToken: nanoid(),
         }
+ 
+
         session.expiresIn = this.getTokenData(session.token);
+
+
+            
+        // cambiado 
+        // si acaduca se refresca
+        /*if ( session.expiresIn >= ms('1h') ){
+            session.expiresIn =  session.refreshToken.nanoid();
+        }*/
+ 
+///
+
+
+
         return new Session(session)
     }
 

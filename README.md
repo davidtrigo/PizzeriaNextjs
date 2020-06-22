@@ -10,6 +10,34 @@ npm run dev
 yarn dev
 ```
 
+
+
+Para la creación del archivo config privado
+
+1. En la consola escribir el siguiente comando  /guardarlo p.e. en c:/keys/pizzeria.json
+
+SETX  CLOUDINARY  keysecret
+
+keysecret , valor de la key secret que te da cloudinary
+
+
+2. el archivo pizzeria.json  tiene la siguiente estructura 
+
+ {
+	"secret": "xxxxxxxxxxx",
+    "profit": 1.05,
+    "cloudinarySecret": "xxxxxxxxxxxxxx",
+	"algoliaApplicationID":"xxxxxxxxxxxxxxx",
+	"algoliaSecret":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  }
+  
+  
+
+3. reinciar cmd el  IDE 
+
+
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.

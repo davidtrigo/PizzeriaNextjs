@@ -1,5 +1,3 @@
-//TODO crear pizza
-//TODO recuperar lista de pizzas (algolia)
 import handler from '../../../app/middelwares/nextconnect'
 import PizzaService from '../../../app/application/pizzaservice'
 import services from '../../../app/middelwares/service'

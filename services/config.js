@@ -4,6 +4,4 @@ module.exports = {
     algoliaApplicationID:"0JG7DBLM8M",
     algoliaSearchID:"668e6e13a2aeef444415a20423f904be",
     pageRecords: 2  
-
-    
 };

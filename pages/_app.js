@@ -11,22 +11,27 @@ function App({ Component, pageProps }) {
     //const css = sheets.toString();
 
     useEffect(() => {
+      
         async function getUser() {
             const user = await User.get();
-            // TODO extraer la URL de administrador a un
-            // array y cambiar el if
+            // TODO extraer la URL de administrador a un array y cambiar el if
             // TODO verificar que el token no está caducado,
             // si lo está llamar a refresh
+
+
+
+            
             Router.events.on('routeChangeStart', url => {
                 if (url.includes("pizzas/add") ||
                     url.includes("pizzas/edit") ||
                     url.includes("ingredients")) {
-                    if (!user) {
+                    if (!user ) {
                         Router.push('/')
                     }
                 }
             })
         }
+
         getUser();
     }, [])
     return (

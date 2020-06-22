@@ -29,6 +29,7 @@ function auth(...roles) {
         if (!user || !verifyRoles(user, roles)) {
             res.status(403).json('""')
         }
+
         req.user = user
         next()
     }
